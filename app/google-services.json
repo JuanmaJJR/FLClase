@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "540431344441",
+    "firebase_url": "https://flclase.firebaseio.com",
+    "project_id": "flclase",
+    "storage_bucket": "flclase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540431344441:android:18953e72a53f7f19",
+        "android_client_info": {
+          "package_name": "com.example.juanmajr.flclase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540431344441-nsg1h3nenbtk7kjjjgtgg0q2afp4o9dj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcPqhg6jt9mgYQmfRNzKIwuQtPaqv-Zg4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
