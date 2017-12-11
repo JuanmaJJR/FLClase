@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         transition.hide(registerFragment);
         transition.commit();
 
-        DataHolder.instance.fireBaseAdmin.loginConEmailYPassword("test@test.com","asdf1234",this);
 
 
     }

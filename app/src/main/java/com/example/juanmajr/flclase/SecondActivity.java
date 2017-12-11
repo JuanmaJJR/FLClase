@@ -52,7 +52,7 @@ class SecondActivityEvents implements FireBaseAdminListener{
         if(rama.equals("Coches")){
             GenericTypeIndicator<ArrayList<FBCoche>> indicator = new GenericTypeIndicator<ArrayList<FBCoche>>(){};
             ArrayList<FBCoche> coches = dataSnapshot.getValue(indicator);
-            ListaCochesAdapter listaCochesAdapter = new ListaCochesAdapter(coches);
+            ListaCochesAdapter listaCochesAdapter = new ListaCochesAdapter(coches,secondActivity);
             secondActivity.ListaFragmentCoches.recyclerView.setAdapter(listaCochesAdapter);
         }
     }

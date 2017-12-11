@@ -12,8 +12,9 @@ public class FBCoche {
     public int Fabricado;
     public String Marca;
     public String Nombre;
-    public double Lat;
-    public double Lon;
+    public double lat;
+    public double lon;
+    public String imgurl;
 
 
 
@@ -22,11 +23,12 @@ public class FBCoche {
 
     }
 
-    public FBCoche(int fabricado, String marca, String nombre, double lat, double lon) {
+    public FBCoche(int fabricado, String marca, String nombre, double lat, double lon,String imgurl) {
         this.Fabricado = fabricado;
         this.Marca = marca;
         this.Nombre = nombre;
-        this.Lat = lat;
-        this.Lon = lon;
+        this.lat = lat;
+        this.lon = lon;
+        this.imgurl = imgurl;
     }
 }
