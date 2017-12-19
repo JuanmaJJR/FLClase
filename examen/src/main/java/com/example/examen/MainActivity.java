@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         //seteamos a los fragments y al firebaseadmin su listener, debido a que mainActivityEvents implementa los listener de los fragments
         loginFragment.setListener(mainActivityEvents);
         registerFragment.setListener(mainActivityEvents);
-       // DataHolder.instance.fireBaseAdmin.setListener(mainActivityEvents);
+        DataHolder.instance.fireBaseAdmin.setListener(mainActivityEvents);
 
         //creamos una trasition de los fragments para mostrar el de login al inicializar la app
         FragmentTransaction transition = getSupportFragmentManager().beginTransaction();
