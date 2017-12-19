@@ -8,6 +8,7 @@ import com.example.milib.LoginFragment;
 import com.example.milib.LoginFragmentListener;
 import com.example.milib.RegisterFragment;
 import com.example.milib.RegisterFragmentListener;
+import com.google.firebase.database.DataSnapshot;
 
 public class MainActivity extends AppCompatActivity {
     LoginFragment loginFragment;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListener{
+class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListener,FireBaseAdminListener{
     MainActivity mainActivity;
     public MainActivityEvents(MainActivity mainActivity){
         this.mainActivity = mainActivity;
@@ -61,6 +62,21 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
 
     @Override
     public void registerFragmentBtnCancelarClciked() {
+
+    }
+
+    @Override
+    public void FireBaseAdmin_RegisterOk(Boolean ok) {
+
+    }
+
+    @Override
+    public void FireBaseAdmin_LoginOk(Boolean ok) {
+
+    }
+
+    @Override
+    public void FireBaseAdmin_RamaDescargada(String rama, DataSnapshot dataSnapshot) {
 
     }
 }
