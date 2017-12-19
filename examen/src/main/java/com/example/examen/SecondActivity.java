@@ -32,9 +32,10 @@ public class SecondActivity extends AppCompatActivity {
         this.btnLogOut.setOnClickListener(events);
 
 
-
+        //definimos en la variable el fragmentListNoticias del xml
         ListaFragmentNoticias = (ListaFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentListNoticias);
 
+        //mediante el firebaseAdmin descargamos y obsrevamos la rama Noticias en este caso, al estar observandola los cambios se veran afectados en tiempo real
         DataHolder.instance.fireBaseAdmin.descargarYObservarRama("Noticias");
     }
 }
@@ -70,6 +71,7 @@ class SecondActivityEvents implements FireBaseAdminListener, View.OnClickListene
 
     }
 
+    //Con este onclick y la condicion del btnlogout hacemos logout del usuario actual y pasamos al activity uno.
     @Override
     public void onClick(View v) {
         if(v.getId()==R.id.btnlogout){
