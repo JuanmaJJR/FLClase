@@ -3,6 +3,8 @@ package com.example.examen;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.examen.Adapters.ListaNoticiasAdapter;
+import com.example.examen.FBObjects.FBNoticia;
 import com.example.milib.ListaFragment;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.GenericTypeIndicator;
@@ -35,6 +37,12 @@ class SecondActivityEvents implements FireBaseAdminListener{
 
     @Override
     public void FireBaseAdmin_RamaDescargada(String rama, DataSnapshot dataSnapshot) {
+        if(rama.equals("Noticias")){
+            GenericTypeIndicator<ArrayList<FBNoticia>> indicator = new GenericTypeIndicator<ArrayList<FBNoticia>>(){};
+            ArrayList<FBNoticia> coches = dataSnapshot.getValue(indicator);
+            ListaNoticiasAdapter listaCochesAdapter = new ListaNoticiasAdapter(coches,secondActivity);
+            secondActivity.ListaFragmentNoticias.recyclerView.setAdapter(listaCochesAdapter);
+        }
 
     }
 

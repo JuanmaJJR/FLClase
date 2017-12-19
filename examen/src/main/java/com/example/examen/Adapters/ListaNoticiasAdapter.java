@@ -42,7 +42,7 @@ public class ListaNoticiasAdapter extends RecyclerView.Adapter<NoticiasViewHolde
     public void onBindViewHolder(NoticiasViewHolder holder, int position) {
         holder.tvtitulo.setText(noticias.get(position).titulo+"");
         holder.tvperiodico.setText(noticias.get(position).periodico);
-        Glide.with(nContext).load(noticias.get(position).imgurl).into(holder.imgcoche);
+        Glide.with(nContext).load(noticias.get(position).imgurl).into(holder.imgnoticia);
 
     }
 
@@ -60,13 +60,13 @@ class NoticiasViewHolder extends RecyclerView.ViewHolder {
 
     public TextView tvtitulo;
     public TextView tvperiodico;
-    public ImageView imgcoche;
+    public ImageView imgnoticia;
 
     public NoticiasViewHolder(View itemView) {
         super(itemView);
-        //tvfabricado=itemView.findViewById(R.id.tvfabricado);
-        //tvmarca=itemView.findViewById(R.id.tvmarca);
-        //tvnombre=itemView.findViewById(R.id.tvnombre);
+        tvtitulo=itemView.findViewById(R.id.tvtitulo);
+        tvperiodico=itemView.findViewById(R.id.tvperiodico);
+        imgnoticia=itemView.findViewById(R.id.imgnoticia);
 
     }
 }
