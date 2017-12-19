@@ -5,6 +5,8 @@ import com.google.firebase.database.IgnoreExtraProperties;
 /**
  * Created by juan.jusue on 19/12/2017.
  */
+//Objeto noticia compatible con FireBase, podemos ver los parametros que tiene el objeto.
+
 @IgnoreExtraProperties
 public class FBNoticia {
     public String titulo;

@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 
 public class ListaNoticiasAdapter extends RecyclerView.Adapter<NoticiasViewHolder> {
-    //arraylist de objetos coches
+    //arraylist de objetos noticias
     private ArrayList<FBNoticia> noticias;
     private Context nContext;
 
@@ -30,15 +30,15 @@ public class ListaNoticiasAdapter extends RecyclerView.Adapter<NoticiasViewHolde
 
     @Override
     public NoticiasViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //inflamos el xml de la cerda
+        //inflamos el xml de la celda
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.celda_noticia_layout,null);
-        //inicializamos la viewHolder de los coches
+        //inicializamos la viewHolder de las noticias
         NoticiasViewHolder cochesViewHolder = new NoticiasViewHolder(view);
         return cochesViewHolder;
     }
 
     @Override
-    //metodo para setear todos los datos del coche dentro de la cerda
+    //metodo para setear todos los datos de la noticia dentro de la cerda
     public void onBindViewHolder(NoticiasViewHolder holder, int position) {
         holder.tvtitulo.setText(noticias.get(position).titulo+"");
         holder.tvperiodico.setText(noticias.get(position).periodico);
@@ -55,7 +55,7 @@ public class ListaNoticiasAdapter extends RecyclerView.Adapter<NoticiasViewHolde
 
 
 
-//clase viewholder de los coches, esta clase se repetira por cada coche que haya en la bbdd
+//clase viewholder de las noticias, esta clase se repetira por cada noticia que haya en la bbdd
 class NoticiasViewHolder extends RecyclerView.ViewHolder {
 
     public TextView tvtitulo;

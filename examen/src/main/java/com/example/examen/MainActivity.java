@@ -111,6 +111,7 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
         }
     }
 
+    //Este metodo esta vacio porque nos vemos obligados a importarlo
     @Override
     public void FireBaseAdmin_RamaDescargada(String rama, DataSnapshot dataSnapshot) {
 

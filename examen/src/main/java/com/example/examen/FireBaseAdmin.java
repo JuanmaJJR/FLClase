@@ -109,4 +109,7 @@ public class FireBaseAdmin {
 
     }
 
+    public FirebaseAuth getmAuth() {
+        return mAuth;
+    }
 }
