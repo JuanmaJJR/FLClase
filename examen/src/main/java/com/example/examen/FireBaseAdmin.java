@@ -8,8 +8,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by juan.jusue on 19/12/2017.
@@ -81,6 +84,29 @@ public class FireBaseAdmin {
                         // ...
                     }
                 });
+    }
+    //metodo para descargar una rama en firebase,este metodo tambien obersva la rama
+    //asi que si sufre algun cambio lo actualizara en tiempo real
+    public void descargarYObservarRama(final String rama){
+        DatabaseReference refRama= myRefRaiz.child(rama);
+        refRama.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                listener.FireBaseAdmin_RamaDescargada(rama,dataSnapshot);
+                //.d(TAG, "Value is: " + value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                listener.FireBaseAdmin_RamaDescargada(rama,null);
+
+                // Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
     }
 
 }
