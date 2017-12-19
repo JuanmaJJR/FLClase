@@ -29,13 +29,15 @@ public class MainActivity extends AppCompatActivity {
         loginFragment = (LoginFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentLogin);
         registerFragment = (RegisterFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentRegister);
 
+        //inicializado el events
         MainActivityEvents mainActivityEvents = new MainActivityEvents(this);
 
-
+        //seteamos a los fragments y al firebaseadmin su listener, debido a que mainActivityEvents implementa los listener de los fragments
         loginFragment.setListener(mainActivityEvents);
         registerFragment.setListener(mainActivityEvents);
         DataHolder.instance.fireBaseAdmin.setListener(mainActivityEvents);
 
+        //creamos una trasition de los fragments para mostrar el de login al inicializar la app
         FragmentTransaction transition = getSupportFragmentManager().beginTransaction();
         transition.show(loginFragment);
         transition.hide(registerFragment);
@@ -46,17 +48,23 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
+//Este events implementa los listener de los fragmentos, y del firebaseadmin, para que cuando se usen en el listener de milib
+//se ejecuten estos metodos.
 class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListener, FireBaseAdminListener{
     MainActivity mainActivity;
     public MainActivityEvents(MainActivity mainActivity){
         this.mainActivity=mainActivity;
     }
 
+    //cuando el LoginFragmentEvents reciba que se ha pulsado el boton, llamara al metodo de la interfaz
+    //debido a que esta seteado esta clase como el listener, se ejectura este metodo implementado de la interfaz
     @Override
     public void loginFragmentLoginButtonClicked(String sUser, String sPass) {
         DataHolder.instance.fireBaseAdmin.loginConEmailYPassword(sUser,sPass,mainActivity);
     }
 
+    //cuando el LoginFragmentEvents reciba que se ha pulsado el boton, llamara al metodo de la interfaz
+    //debido a que esta seteado esta clase como el listener, se ejectura este metodo implementado de la interfaz
     @Override
     public void loginFragmentRegisterButtonClicked() {
         FragmentTransaction transition = mainActivity.getSupportFragmentManager().beginTransaction();
@@ -65,12 +73,14 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
         transition.commit();
 
     }
-
+    //cuando el RegisterFragmentEvents reciba que se ha pulsado el boton, llamara al metodo de la interfaz
+    //debido a que esta seteado esta clase como el listener, se ejectura este metodo implementado de la interfaz
     @Override
     public void registerFragmentBtnAceptarClicked(String sUser, String sPass) {
         DataHolder.instance.fireBaseAdmin.registerConEmailYPassword(sUser,sPass,mainActivity);
     }
-
+    //cuando el RegisterFragmentEvents reciba que se ha pulsado el boton, llamara al metodo de la interfaz
+    //debido a que esta seteado esta clase como el listener, se ejectura este metodo implementado de la interfaz
     @Override
     public void registerFragmentBtnCancelarClciked() {
         FragmentTransaction transition = mainActivity.getSupportFragmentManager().beginTransaction();
@@ -80,6 +90,8 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
 
     }
 
+    //Este metodo es llamado por el firebase admin al realizar el registro, si se le llama con un
+    //true por parametro, haremos el intent de las activitys para mostrar la segunda.
     @Override
     public void FireBaseAdmin_RegisterOk(Boolean ok) {
         if(ok){
@@ -93,6 +105,8 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
 
     }
 
+    //Este metodo es llamado por el firebase admin al realizar el login, si se le llama con un
+    //true por parametro, haremos el intent de las activitys para mostrar la segunda.
     @Override
     public void FireBaseAdmin_LoginOk(Boolean ok) {
         if(ok){

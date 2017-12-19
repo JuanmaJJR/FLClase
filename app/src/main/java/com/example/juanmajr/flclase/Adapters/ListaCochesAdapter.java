@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 public class ListaCochesAdapter extends RecyclerView.Adapter<CochesViewHolder> {
 
+    //arraylist de objetos coches
     private ArrayList<FBCoche> coches;
     private Context nContext;
 
@@ -31,12 +32,15 @@ public class ListaCochesAdapter extends RecyclerView.Adapter<CochesViewHolder> {
 
     @Override
     public CochesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        //inflamos el xml de la cerda
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.celda_coche_layout,null);
+        //inicializamos la viewHolder de los coches
         CochesViewHolder cochesViewHolder = new CochesViewHolder(view);
         return cochesViewHolder;
     }
 
     @Override
+    //metodo para setear todos los datos del coche dentro de la cerda
     public void onBindViewHolder(CochesViewHolder holder, int position) {
         holder.tvfabricado.setText(coches.get(position).Fabricado+"");
         holder.tvnombre.setText(coches.get(position).Nombre);
@@ -56,6 +60,7 @@ public class ListaCochesAdapter extends RecyclerView.Adapter<CochesViewHolder> {
 }
 
 
+//clase viewholder de los coches, esta clase se repetira por cada coche que haya en la bbdd
 class CochesViewHolder extends RecyclerView.ViewHolder{
 
     public TextView tvfabricado;

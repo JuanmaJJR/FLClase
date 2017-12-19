@@ -39,6 +39,7 @@ public class FireBaseAdmin {
         this.listener = listener;
     }
 
+    //metodo para registrar con email y password en firebase
     public void registerConEmailYPassword(String email, String pass, Activity activity){
         mAuth.createUserWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
@@ -61,7 +62,7 @@ public class FireBaseAdmin {
                     }
                 });
     }
-
+    //metodo para logear con email y password en firebase
     public void loginConEmailYPassword(String email, String pass, Activity activity){
         mAuth.signInWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
@@ -73,10 +74,12 @@ public class FireBaseAdmin {
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (task.isSuccessful()) {
+                            System.out.print("yes");
                             user = FirebaseAuth.getInstance().getCurrentUser();
                             listener.FireBaseAdmin_LoginOk(true);
                         }
                         else{
+                            System.out.print("nooo");
                             listener.FireBaseAdmin_LoginOk(false);
                         }
 
@@ -85,6 +88,8 @@ public class FireBaseAdmin {
                 });
     }
 
+    //metodo para descargar una rama en firebase,este metodo tambien obersva la rama
+    //asi que si sufre algun cambio lo actualizara en tiempo real
     public void descargarYObservarRama(final String rama){
         DatabaseReference refRama= myRefRaiz.child(rama);
         refRama.addValueEventListener(new ValueEventListener() {
