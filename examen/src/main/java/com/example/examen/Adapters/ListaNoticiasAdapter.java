@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.examen.FBObjects.FBNoticia;
+import com.example.examen.R;
 
 import java.util.ArrayList;
 
@@ -18,18 +20,18 @@ import java.util.ArrayList;
 
 public class ListaNoticiasAdapter extends RecyclerView.Adapter<NoticiasViewHolder> {
     //arraylist de objetos coches
-    private ArrayList<FBCoche> coches;
+    private ArrayList<FBNoticia> noticias;
     private Context nContext;
 
-    public ListaNoticiasAdapter(ArrayList<FBCoche> coches,Context nContext){
-        this.coches = coches;
+    public ListaNoticiasAdapter(ArrayList<FBNoticia> noticias,Context nContext){
+        this.noticias = noticias;
         this.nContext = nContext;
     }
 
     @Override
     public NoticiasViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //inflamos el xml de la cerda
-      //  View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.celda_coche_layout,null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.celda_noticia_layout,null);
         //inicializamos la viewHolder de los coches
         NoticiasViewHolder cochesViewHolder = new NoticiasViewHolder(view);
         return cochesViewHolder;
@@ -38,30 +40,26 @@ public class ListaNoticiasAdapter extends RecyclerView.Adapter<NoticiasViewHolde
     @Override
     //metodo para setear todos los datos del coche dentro de la cerda
     public void onBindViewHolder(NoticiasViewHolder holder, int position) {
-        holder.tvfabricado.setText(coches.get(position).Fabricado+"");
-        holder.tvnombre.setText(coches.get(position).Nombre);
-        holder.tvmarca.setText(coches.get(position).Marca);
-        Glide.with(nContext).load(coches.get(position).imgurl).into(holder.imgcoche);
+        holder.tvtitulo.setText(noticias.get(position).titulo+"");
+        holder.tvperiodico.setText(noticias.get(position).periodico);
+        Glide.with(nContext).load(noticias.get(position).imgurl).into(holder.imgcoche);
 
     }
 
 
     @Override
     public int getItemCount() {
-        return coches.size();
+        return noticias.size();
     }
 }
 
-}
+
 
 //clase viewholder de los coches, esta clase se repetira por cada coche que haya en la bbdd
 class NoticiasViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView tvfabricado;
-    public TextView tvmarca;
-    public TextView tvnombre;
-    public TextView tvlatitud;
-    public TextView tvlongitud;
+    public TextView tvtitulo;
+    public TextView tvperiodico;
     public ImageView imgcoche;
 
     public NoticiasViewHolder(View itemView) {
