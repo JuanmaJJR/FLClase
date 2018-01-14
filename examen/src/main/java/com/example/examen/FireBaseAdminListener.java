@@ -1,9 +1,9 @@
-package com.example.juanmajr.flclase;
+package com.example.examen;
 
 import com.google.firebase.database.DataSnapshot;
 
 /**
- * Created by JuanmaJR on 10/12/2017.
+ * Created by juan.jusue on 19/12/2017.
  */
 
 //interfaz con los metodos que implementara el events de la activity donde descarguemos los datos o hagamos el registro o el login

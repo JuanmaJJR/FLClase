@@ -1,11 +1,9 @@
-package com.example.juanmajr.flclase;
-
+package com.example.examen;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 
 import com.example.milib.LoginFragment;
 import com.example.milib.LoginFragmentListener;
@@ -14,17 +12,13 @@ import com.example.milib.RegisterFragmentListener;
 import com.google.firebase.database.DataSnapshot;
 
 public class MainActivity extends AppCompatActivity {
-
     LoginFragment loginFragment;
     RegisterFragment registerFragment;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //inicializado el fragment del Login
         loginFragment = (LoginFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentLogin);
         registerFragment = (RegisterFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentRegister);
@@ -43,14 +37,12 @@ public class MainActivity extends AppCompatActivity {
         transition.hide(registerFragment);
         transition.commit();
 
-
-
     }
 }
 
 //Este events implementa los listener de los fragmentos, y del firebaseadmin, para que cuando se usen en el listener de milib
 //se ejecuten estos metodos.
-class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListener, FireBaseAdminListener{
+class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListener,FireBaseAdminListener{
     MainActivity mainActivity;
     public MainActivityEvents(MainActivity mainActivity){
         this.mainActivity=mainActivity;
@@ -119,10 +111,10 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
         }
     }
 
+    //Este metodo esta vacio porque nos vemos obligados a importarlo
     @Override
     public void FireBaseAdmin_RamaDescargada(String rama, DataSnapshot dataSnapshot) {
 
     }
-
 
 }

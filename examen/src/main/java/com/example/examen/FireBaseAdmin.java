@@ -1,9 +1,8 @@
-package com.example.juanmajr.flclase;
+package com.example.examen;
 
-import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.util.Log;
-
+import android.app.Activity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -16,11 +15,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 /**
- * Created by JuanmaJR on 10/12/2017.
+ * Created by juan.jusue on 19/12/2017.
  */
 
 public class FireBaseAdmin {
-
     private FirebaseAuth mAuth;
     public FireBaseAdminListener listener;
     public FirebaseUser user;
@@ -87,7 +85,6 @@ public class FireBaseAdmin {
                     }
                 });
     }
-
     //metodo para descargar una rama en firebase,este metodo tambien obersva la rama
     //asi que si sufre algun cambio lo actualizara en tiempo real
     public void descargarYObservarRama(final String rama){
@@ -112,7 +109,7 @@ public class FireBaseAdmin {
 
     }
 
-
+    public FirebaseAuth getmAuth() {
+        return mAuth;
+    }
 }
-
-
