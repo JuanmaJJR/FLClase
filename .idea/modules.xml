@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/FLClase.iml" filepath="$PROJECT_DIR$/FLClase.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/examen/examen.iml" filepath="$PROJECT_DIR$/examen/examen.iml" />
+      <module fileurl="file://C:\Users\JuanmaJR\AndroidStudioProjects\FLClase\examen\examen.iml" filepath="C:\Users\JuanmaJR\AndroidStudioProjects\FLClase\examen\examen.iml" />
       <module fileurl="file://$PROJECT_DIR$/milib/milib.iml" filepath="$PROJECT_DIR$/milib/milib.iml" />
     </modules>
   </component>

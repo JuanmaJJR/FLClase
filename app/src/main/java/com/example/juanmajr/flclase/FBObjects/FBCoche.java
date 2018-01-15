@@ -1,7 +1,11 @@
 package com.example.juanmajr.flclase.FBObjects;
 
 import com.google.android.gms.maps.model.Marker;
+import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by JuanmaJR on 11/12/2017.
@@ -42,5 +46,18 @@ public class FBCoche {
 
     public Marker getMarker(){
         return this.marker;
+    }
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("Fabricado", Fabricado);
+        result.put("Marca", Marca);
+        result.put("Nombre", Nombre);
+        result.put("lat", lat);
+        result.put("lon", lon);
+        result.put("imgurl", imgurl);
+
+        return result;
     }
 }

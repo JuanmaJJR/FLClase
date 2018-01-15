@@ -55,6 +55,8 @@ public class SecondActivity extends AppCompatActivity {
         GPSTracker gpsTracker=new GPSTracker(this);
         if(gpsTracker.canGetLocation()){
             Log.v("SecondActivity",gpsTracker.getLatitude()+"  "+gpsTracker.getLongitude());
+            FBCoche fbcoche = new FBCoche(2017,"Cochecito","ferrari",gpsTracker.getLatitude(),gpsTracker.getLongitude(),"");
+            DataHolder.instance.fireBaseAdmin.insertarenrama("/Coches/4",fbcoche.toMap());
         }
         else{
             gpsTracker.showSettingsAlert();
