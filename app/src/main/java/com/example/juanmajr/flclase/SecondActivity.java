@@ -13,6 +13,7 @@ import com.example.milib.DetallesFragment;
 import com.example.milib.GPSadmin.GPSTracker;
 import com.example.milib.ListaFragment;
 import com.example.milib.MapDetailFragment;
+import com.example.milib.synctask.HtppAsyncTask;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -62,6 +63,8 @@ public class SecondActivity extends AppCompatActivity {
             gpsTracker.showSettingsAlert();
         }
 
+        HtppAsyncTask htppAsyncTask=new HtppAsyncTask();
+        htppAsyncTask.execute("http://www.google.com");
 
         //DataHolder.instance.fireBaseAdmin.descargarYObservarRama("Coches");
 
