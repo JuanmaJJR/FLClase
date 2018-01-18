@@ -64,7 +64,7 @@ public class SecondActivity extends AppCompatActivity {
         }
 
         HtppAsyncTask htppAsyncTask=new HtppAsyncTask();
-        htppAsyncTask.execute("http://www.google.com");
+        htppAsyncTask.execute("http://www.worldbestlearningcenter.com/tips/img-files/android_stop_asynctask.jpg");
 
         //DataHolder.instance.fireBaseAdmin.descargarYObservarRama("Coches");
 
