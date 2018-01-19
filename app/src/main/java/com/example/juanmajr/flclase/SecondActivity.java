@@ -14,6 +14,7 @@ import com.example.milib.GPSadmin.GPSTracker;
 import com.example.milib.ListaFragment;
 import com.example.milib.MapDetailFragment;
 import com.example.milib.synctask.HtppAsyncTask;
+import com.example.milib.synctask.HttpJsonAsyncTask;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -63,8 +64,8 @@ public class SecondActivity extends AppCompatActivity {
             gpsTracker.showSettingsAlert();
         }
 
-        HtppAsyncTask htppAsyncTask=new HtppAsyncTask();
-        htppAsyncTask.execute("http://www.worldbestlearningcenter.com/tips/img-files/android_stop_asynctask.jpg");
+       // HtppAsyncTask htppAsyncTask=new HtppAsyncTask();
+        //htppAsyncTask.execute("http://www.worldbestlearningcenter.com/tips/img-files/android_stop_asynctask.jpg");
 
         //DataHolder.instance.fireBaseAdmin.descargarYObservarRama("Coches");
 
@@ -76,6 +77,14 @@ public class SecondActivity extends AppCompatActivity {
          //ListaMensajesAdapter listaMensajesAdapter = new ListaMensajesAdapter(mdatos);
 
        //listaMensajesFragment.recyclerView.setAdapter(listaMensajesAdapter);
+        HttpJsonAsyncTask httpJSONAsyncsTask=new HttpJsonAsyncTask();
+        String url= String.format("http://api.openweathermap.org/data/2.5/weather?id=%s&appid=%s",
+                "3117732",DataHolder.instance.API_KEY);
+        httpJSONAsyncsTask.execute(url);;
+
+        HttpJsonAsyncTask httpJSONAsyncsTask1=new HttpJsonAsyncTask();
+        String url1= String.format("http://10.0.2.2/JugadoresJSONServer/leeJugadores.php");
+        httpJSONAsyncsTask1.execute(url1);
     }
 }
 
