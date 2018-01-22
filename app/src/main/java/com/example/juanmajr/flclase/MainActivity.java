@@ -2,9 +2,11 @@ package com.example.juanmajr.flclase;
 
 
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 
 import com.example.milib.LoginFragment;
@@ -46,6 +48,18 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Pass the activity result to the fragment, which will then pass the result to the login
+        // button.
+        Log.v("aa","sisisisi");
+        if (loginFragment != null) {
+            loginFragment.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
 }
 
 //Este events implementa los listener de los fragmentos, y del firebaseadmin, para que cuando se usen en el listener de milib
@@ -73,6 +87,14 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
         transition.commit();
 
     }
+
+    @Override
+    public void cambiarPantalla() {
+        Intent intent = new Intent(mainActivity,SecondActivity.class);
+        mainActivity.startActivity(intent);
+        mainActivity.finish();
+    }
+
     //cuando el RegisterFragmentEvents reciba que se ha pulsado el boton, llamara al metodo de la interfaz
     //debido a que esta seteado esta clase como el listener, se ejectura este metodo implementado de la interfaz
     @Override

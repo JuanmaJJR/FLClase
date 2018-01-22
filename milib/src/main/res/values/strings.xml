@@ -3,4 +3,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="facebook_app_id">205222510053969</string>
+    <string name="fb_login_protocol_scheme">fb205222510053969</string>
+
+    <string name="com.twitter.sdk.android.CONSUMER_KEY">dqAQ0NFW4MX6ztbKaMbHzKlxM</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET">JkhdOY217Cq9scjAdp7lmNDPNOWM6AoApMa0yoJAY3qEwQUTZb</string>
 </resources>
