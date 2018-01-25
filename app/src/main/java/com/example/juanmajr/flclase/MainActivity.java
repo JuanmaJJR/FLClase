@@ -2,7 +2,7 @@ package com.example.juanmajr.flclase;
 
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,7 +13,9 @@ import com.example.milib.LoginFragment;
 import com.example.milib.LoginFragmentListener;
 import com.example.milib.RegisterFragment;
 import com.example.milib.RegisterFragmentListener;
+import com.facebook.AccessToken;
 import com.google.firebase.database.DataSnapshot;
+import com.twitter.sdk.android.core.TwitterSession;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,6 +70,11 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
     MainActivity mainActivity;
     public MainActivityEvents(MainActivity mainActivity){
         this.mainActivity=mainActivity;
+    }
+
+    @Override
+    public void loginFragmentFacebook(AccessToken accessToken, FragmentActivity activity) {
+        DataHolder.instance.fireBaseAdmin.handleFacebookAccessToken(mainActivity,accessToken);
     }
 
     //cuando el LoginFragmentEvents reciba que se ha pulsado el boton, llamara al metodo de la interfaz
@@ -144,6 +151,15 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
     @Override
     public void FireBaseAdmin_RamaDescargada(String rama, DataSnapshot dataSnapshot) {
 
+    }
+
+    @Override
+    public void handleFacebookAccessToken(AccessToken token) {
+
+    }
+    @Override
+    public void loginFragmentTwitter(TwitterSession twitterSession, FragmentActivity activity){
+        DataHolder.instance.fireBaseAdmin.handleTwitterSession(mainActivity,twitterSession);
     }
 
 

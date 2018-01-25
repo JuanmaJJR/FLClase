@@ -15,6 +15,7 @@ import com.example.milib.ListaFragment;
 import com.example.milib.MapDetailFragment;
 import com.example.milib.synctask.HtppAsyncTask;
 import com.example.milib.synctask.HttpJsonAsyncTask;
+import com.facebook.AccessToken;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -109,6 +110,11 @@ class SecondActivityEvents implements FireBaseAdminListener,OnMapReadyCallback,G
             secondActivity.ListaFragmentCoches.recyclerView.setAdapter(listaCochesAdapter);
             agregarPinesCoches();
         }
+    }
+
+    @Override
+    public void handleFacebookAccessToken(AccessToken token) {
+
     }
 
     public void quitarViejosPines(){

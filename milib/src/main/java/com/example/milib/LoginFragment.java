@@ -64,6 +64,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void success(Result<TwitterSession> result) {
                 // Do something with result, which provides a TwitterSession for making API calls
+                listener.loginFragmentTwitter(result.data,getActivity());
                 listener.cambiarPantalla();
             }
 
@@ -106,6 +107,8 @@ public class LoginFragment extends Fragment {
             public void onSuccess(LoginResult loginResult) {
                 // App code
                 Log.v("FaceBActivity", "ME HE LOGEADO EN FACEBOOK CON EL FRAGMENTO");
+                listener.loginFragmentFacebook(loginResult.getAccessToken(),getActivity());
+
             }
 
             @Override
@@ -134,7 +137,6 @@ public class LoginFragment extends Fragment {
         if(requestCode==64206){
             callbackManager.onActivityResult(requestCode, resultCode, data);
             listener.cambiarPantalla();
-
         }
         else{
             super.onActivityResult(requestCode, resultCode, data);

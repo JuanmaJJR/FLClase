@@ -1,5 +1,6 @@
 package com.example.juanmajr.flclase;
 
+import com.facebook.AccessToken;
 import com.google.firebase.database.DataSnapshot;
 
 /**
@@ -13,4 +14,5 @@ public interface FireBaseAdminListener {
     public void FireBaseAdmin_RegisterOk(Boolean ok);
     public void FireBaseAdmin_LoginOk(Boolean ok);
     public void FireBaseAdmin_RamaDescargada(String rama,DataSnapshot dataSnapshot);
+    public void handleFacebookAccessToken(AccessToken token);
 }
