@@ -13,7 +13,7 @@ import java.util.Map;
 
 @IgnoreExtraProperties
 public class FBCoche {
-
+    
     public int Fabricado;
     public String Marca;
     public String Nombre;
@@ -31,13 +31,17 @@ public class FBCoche {
 
     }
 
-    public FBCoche(int fabricado, String marca, String nombre, double lat, double lon,String imgurl) {
+    public FBCoche(int fabricado, String marca, String nombre, double lat, double lon, String imgurl) {
         this.Fabricado = fabricado;
         this.Marca = marca;
+
         this.Nombre = nombre;
         this.lat = lat;
         this.lon = lon;
         this.imgurl = imgurl;
+    }
+    public FBCoche(int fabricado, String marca, String nombre){
+
     }
 
     public void setMarker(Marker marker){
@@ -59,5 +63,53 @@ public class FBCoche {
         result.put("imgurl", imgurl);
 
         return result;
+    }
+
+    public int getFabricado() {
+        return Fabricado;
+    }
+
+    public void setFabricado(int fabricado) {
+        Fabricado = fabricado;
+    }
+
+    public String getMarca() {
+        return Marca;
+    }
+
+    public void setMarca(String marca) {
+        Marca = marca;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String nombre) {
+        Nombre = nombre;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLon() {
+        return lon;
+    }
+
+    public void setLon(double lon) {
+        this.lon = lon;
+    }
+
+    public String getImgurl() {
+        return imgurl;
+    }
+
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl;
     }
 }

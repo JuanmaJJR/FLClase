@@ -23,6 +23,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.GenericTypeIndicator;
 
@@ -86,6 +87,9 @@ public class SecondActivity extends AppCompatActivity {
         HttpJsonAsyncTask httpJSONAsyncsTask1=new HttpJsonAsyncTask();
         String url1= String.format("http://10.0.2.2/JugadoresJSONServer/leeJugadores.php");
         httpJSONAsyncsTask1.execute(url1);
+
+        FirebaseCrash.log("SECOND ACTIVITY created");
+
     }
 }
 
@@ -103,6 +107,7 @@ class SecondActivityEvents implements FireBaseAdminListener,OnMapReadyCallback,G
     @Override
     public void FireBaseAdmin_RamaDescargada(String rama, DataSnapshot dataSnapshot) {
         if(rama.equals("Coches")){
+            FirebaseCrash.log("Rama descargada");
             quitarViejosPines();
             GenericTypeIndicator<ArrayList<FBCoche>> indicator = new GenericTypeIndicator<ArrayList<FBCoche>>(){};
             coches = dataSnapshot.getValue(indicator);

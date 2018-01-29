@@ -37,6 +37,8 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
     compile 'com.google.firebase:firebase-messaging:11.8.0'
+    compile 'com.google.firebase:firebase-crash:11.8.0'
+
 
 
 

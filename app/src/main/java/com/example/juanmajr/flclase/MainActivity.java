@@ -9,13 +9,17 @@ import android.os.Bundle;
 import android.util.Log;
 
 
+import com.example.juanmajr.flclase.FBObjects.Contact;
 import com.example.milib.LoginFragment;
 import com.example.milib.LoginFragmentListener;
 import com.example.milib.RegisterFragment;
 import com.example.milib.RegisterFragmentListener;
 import com.facebook.AccessToken;
+import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.database.DataSnapshot;
 import com.twitter.sdk.android.core.TwitterSession;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,6 +50,27 @@ public class MainActivity extends AppCompatActivity {
         transition.show(loginFragment);
         transition.hide(registerFragment);
         transition.commit();
+
+        DatabaseHandler db = new DatabaseHandler(this);
+
+        db.addContact(new Contact("Juanma", "111111111"));
+        db.addContact(new Contact("Peter", "222222222"));
+        db.addContact(new Contact("Tuvilla", "333333333"));
+        db.addContact(new Contact("Yony", "44444444"));
+
+        // Reading all contacts
+        List<Contact> contacts = db.getAllContacts();
+
+        for (Contact cn : contacts) {
+            String log = "Id: "+cn.getID()+" ,Name: " + cn.getName() + " ,Phone: " + cn.getPhoneNumber();
+            // Writing Contacts to log
+            Log.d("TUTORIALSQLLITE ", log);
+        }
+
+        FirebaseCrash.report(new Exception("My first Android non-fatal error"));
+        FirebaseCrash.log("Activity created");
+
+
 
 
 
@@ -97,6 +122,8 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
 
     @Override
     public void cambiarPantalla() {
+        FirebaseCrash.log("LOGIN RRSS");
+
         Intent intent = new Intent(mainActivity,SecondActivity.class);
         mainActivity.startActivity(intent);
         mainActivity.finish();
@@ -139,6 +166,7 @@ class MainActivityEvents implements LoginFragmentListener, RegisterFragmentListe
     @Override
     public void FireBaseAdmin_LoginOk(Boolean ok) {
         if(ok){
+            FirebaseCrash.log("Login normal");
             Intent intent = new Intent(mainActivity,SecondActivity.class);
             mainActivity.startActivity(intent);
             mainActivity.finish();
